@@ -110,3 +110,6 @@ venv.bak/
 /logs
 
 /results
+/tmp
+*.yml
+gui*config*.conf
