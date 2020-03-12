@@ -227,6 +227,7 @@ class UniversalParser:
 		raw_data = ""
 		with open(filename, "r", encoding="utf-8") as f:
 			raw_data = f.read()
+			raw_data = raw_data.replace("\t",'')
 			f.close()
 		try:
 			#Try Load as Json

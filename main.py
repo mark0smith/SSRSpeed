@@ -71,11 +71,12 @@ if (__name__ == "__main__"):
 					pass
 		sys.exit(0)
 
-	print("****** Import Hint 重要提示******")
-	print("Before you publicly release your speed test results, be sure to ask the node owner if they agree to the release to avoid unnecessary disputes.")
-	print("在您公开发布测速结果之前请务必征得节点拥有者的同意,以避免一些令人烦恼的事情")
-	print("*********************************")
-	input("Press ENTER to conitnue or Crtl+C to exit.")
+	# We don't need this boring hint
+	# print("****** Import Hint 重要提示******")
+	# print("Before you publicly release your speed test results, be sure to ask the node owner if they agree to the release to avoid unnecessary disputes.")
+	# print("在您公开发布测速结果之前请务必征得节点拥有者的同意,以避免一些令人烦恼的事情")
+	# print("*********************************")
+	# input("Press ENTER to conitnue or Crtl+C to exit.")
 
 	if (options.debug):
 		DEBUG = options.debug
@@ -98,7 +99,7 @@ if (__name__ == "__main__"):
 		rc = RequirementsCheck()
 		rc.check()
 	else:
-		logger.warn("Requirements check skipped.")
+		logger.warning("Requirements check skipped.")
 
 	'''
 	if (options.proxy_type):
@@ -133,12 +134,12 @@ if (__name__ == "__main__"):
 	elif (options.test_mode == "wps"):
 		TEST_MODE = "WEB_PAGE_SIMULATION"
 	else:
-		logger.critical("Invalid test mode : %s" % options.test_mode)
-		sys.exit(1)
+		TEST_MODE = "WEB_PAGE_SIMULATION"
+		
 	
 
-	if (options.confirmation):
-		SKIP_COMFIRMATION = options.confirmation
+	if (options.skip_requirements_check):
+		SKIP_COMFIRMATION = options.skip_requirements_check
 	
 	if (options.result_color):
 		RESULT_IMAGE_COLOR = options.result_color
